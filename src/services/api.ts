@@ -1,6 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
-import { _GET_USERS } from "./common";
+import { _GET_PRODUCTS, _GET_USERS } from "./common";
+
+export const productListAsync = createAsyncThunk(
+  "products/getProductList",
+  async () => {
+    try {
+      // Lấy tất cả sản phẩm
+      const response = await axios.get(_GET_PRODUCTS); //link product
+      return response.data;
+    } catch (error) {
+      return [];
+    }
+  }
+);
+
+
+
+
+
 
 export const loginUserAsync = createAsyncThunk(
   "login/loginUser",

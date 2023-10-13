@@ -24,4 +24,7 @@ export default class RegisterServices {
     }
     return error;
   }
+  register() {
+    
+  }
 }

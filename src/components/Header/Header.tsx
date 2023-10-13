@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 import AdbIcon from "@mui/icons-material/Adb";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthState, logout } from "../../redux/slice/AuthSlice";
 
@@ -25,7 +25,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const user = useSelector((state: { auth: AuthState }) => state.auth);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -48,8 +48,8 @@ function Header() {
 
   const handleCloseUserMenu = (path: string) => {
     setAnchorElUser(null);
-    if(path === "Logout") {
-      dispatch(logout())
+    if (path === "Logout") {
+      dispatch(logout());
     }
   };
 
